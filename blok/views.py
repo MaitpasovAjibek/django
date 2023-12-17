@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 
-def hello_view(request):
+def main_view(request):
     if request.method == 'GET':
-        return HttpResponse('Hello its my project')
+        return render(request, 'blok/index.html')
 
 def current_date_view(request):
     if request.method == 'GET':
@@ -15,3 +15,8 @@ def current_date_view(request):
 def goodbye_view(request):
     if request.method == 'GET':
         return HttpResponse('GoodBye my friend/user')
+
+
+def product_view(request):
+    if request.method == 'GET':
+        return render(request, 'blok/products.html')
