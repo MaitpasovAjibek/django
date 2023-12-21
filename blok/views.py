@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
-from .models import Product
+from .models import Product,Category
 
 def main_view(request):
     if request.method == 'GET':
@@ -20,5 +20,20 @@ def goodbye_view(request):
 
 def product_view(request):
     product = Product.objects.all()
+    context = {
+        'product':product,
+        'title':'список постов'
+
+    }
+
     if request.method == 'GET':
-        return render(request, 'blok/products.html', {'product':product})
+        return render(request, 'blok/products.html',context=context )
+
+
+def category_view(request):
+    category = Category.objects.all()
+    cont = {
+        'category':category
+    }
+    if request.method == 'GET':
+        return render(request,'blok/categories.html',context=cont)

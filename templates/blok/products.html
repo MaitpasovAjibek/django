@@ -3,10 +3,17 @@
     Продукты
 {% endblock %}
 
-{% block product %}
-    <h1>Продукты</h1>
-    <p1>Продукты</p1>
+{% block content %}
+{% for el in product %}
+<div class="card" style="width: 18rem;background: #4d4d4d;color: #fff;">
+  <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.title }}</h5>
+    <p class="card-text">{{ product.text }}</p>
 
-    {% include 'blok/test.html' %}
-    {{ product }}
+    <a href="#" class="btn btn-primary">view detail</a>
+  </div>
+</div>
+{% endfor %}
+
 {% endblock %}
