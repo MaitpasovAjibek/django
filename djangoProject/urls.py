@@ -19,12 +19,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from blok.views import main_view , current_date_view , goodbye_view,product_view,category_view
+from blok.views import main_view , current_date_view , goodbye_view,product_view,category_view,post_detail_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_view, name='main'),
     path('current_date/',current_date_view),
     path('goodbye/',goodbye_view),
     path('product/',product_view, name='product'),
-    path('category/', category_view, name='category')
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('category/', category_view, name='category'),
+    path('product/<int:post_id>/',post_detail_view)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)

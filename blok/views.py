@@ -32,8 +32,18 @@ def product_view(request):
 
 def category_view(request):
     category = Category.objects.all()
-    cont = {
+    contex = {
         'category':category
     }
     if request.method == 'GET':
-        return render(request,'blok/categories.html',context=cont)
+        return render(request,'blok/categories.html',context=contex)
+
+
+def post_detail_view(request , post_id):
+    if request.method == 'GET':
+        product = Product.objects.get(id=post_id)
+        context = {
+            'product':product
+
+        }
+        return render(request,'blok/detail.html',context=context)

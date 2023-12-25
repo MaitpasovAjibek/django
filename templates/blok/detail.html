@@ -1,0 +1,26 @@
+{% extends 'blok/layouts.html' %}
+{% block title %}
+    Детальный просмотр
+{% endblock %}
+
+{% block content %}
+<h1>Detail product</h1>
+<h2>{{ product.title }} {{ product.rate }}</h2>
+<p1>{{ product.text }}</p1>
+
+    <img src="/media/{{ product.image }}" >
+<p>{{ product.created_add }}</p>
+{% for el in blok.review.all %}
+    <a class="btn btn-primary" href="#">
+        <p>
+            {{ el.review }}
+        </p>
+
+    </a>
+
+
+{% endfor %}
+
+
+
+{% endblock %}

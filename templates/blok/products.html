@@ -6,12 +6,12 @@
 {% block content %}
 {% for el in product %}
 <div class="card" style="width: 18rem;background: #4d4d4d;color: #fff;">
-  <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+  <img class="card-img-top" src="/media/{{ product.image }}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{ product.title }}</h5>
     <p class="card-text">{{ product.text }}</p>
 
-    <a href="#" class="btn btn-primary">view detail</a>
+    <a href="{{ post_id }}" class="btn btn-primary" style="background: #eb5959;">view detail</a>
   </div>
 </div>
 {% endfor %}

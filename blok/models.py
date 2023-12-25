@@ -34,7 +34,7 @@ class Category(BaseModel):
         'blok.Product',
         on_delete=models.CASCADE ,
         verbose_name='пост',
-        related_name='Категория')
+        related_name='category')
     text = models.CharField(max_length=200,verbose_name='Категория')
 
     def __str__(self) -> str:
@@ -43,3 +43,20 @@ class Category(BaseModel):
         db_table = 'category'
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+class Review(BaseModel):
+    review = models.ForeignKey(
+        'blok.Product',
+        on_delete=models.CASCADE,
+        verbose_name='отзыв',
+        related_name='review'
+    )
+    text = models.CharField(max_length=400,verbose_name='Отзыа')
+
+    def __str__(self) -> str:
+        return f'{self.text}'
+
+    class Meta:
+        db_table = 'review'
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
