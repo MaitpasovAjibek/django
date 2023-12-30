@@ -4,22 +4,17 @@
 {% endblock %}
 
 {% block content %}
-<h1>Detail product</h1>
-<h2>{{ product.title }} {{ product.rate }}</h2>
-<p1>{{ product.text }}</p1>
+<h1 style="color: white">Detail product</h1>
+<h2 style="color: white">{{ product.title }} {{ product.rate }}</h2>
+<p1 style="color: white" >{{ product.text }}</p1>
+<img style="width: 15%" src="/media/{{ product.image }}" alt="">
+<p style="color: white">{{ product.created_add }}</p>
 
-    <img src="/media/{{ product.image }}" >
-<p>{{ product.created_add }}</p>
-{% for el in blok.review.all %}
-    <a class="btn btn-primary" href="#">
-        <p>
-            {{ el.review }}
-        </p>
-
-    </a>
-
-
-{% endfor %}
+    <form style="color: white" action="/product/<int:pk>/" method="POST">
+    {% csrf_token %}
+    {{ form2.as_p }}
+    <button type="submit">OK</button>
+    </form>
 
 
 
