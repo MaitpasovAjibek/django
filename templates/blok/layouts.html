@@ -18,8 +18,24 @@
             <a href="{% url 'main' %}"><li><i class="fa-solid fa-house"></i>Главная</li></a>
             <a href="{% url 'product' %}"><li><i class="fa-solid fa-cart-shopping"></i>Продукты</li></a>
             <a href="{% url 'category' %}"><li><i class="fa-solid fa-paper-plane"></i>Категории</li></a>
+            {% if user.is_authenticated %}
             <a href="{% url 'create' %}"><li><i class="fa-solid fa-paper-plane"></i>Создать карточку</li></a>
             <a href="{% url 'category1' %}"><li><i class="fa-solid fa-paper-plane"></i>Создать категорию</li></a>
+
+            <a href="{% url 'logout' %}"><li><i class="fa-solid fa-paper-plane"></i>Выход</li></a>
+            {% else %}
+            <a href="{% url 'register' %}"><li><i class="fa-solid fa-paper-plane"></i>регистрация</li></a>
+                <a href="{% url 'login' %}"><li><i class="fa-solid fa-paper-plane"></i>логин</li></a>
+            {% endif %}
+
+
+
+        {% if user.is_authenticated %}
+               <a href="/auth/profile/">{{ user.username }}"><li><i class="fa-solid fa-paper-plane"></i></li></a>
+
+
+        {% endif %}
+
         </ul>
     </aside>
     <main>
